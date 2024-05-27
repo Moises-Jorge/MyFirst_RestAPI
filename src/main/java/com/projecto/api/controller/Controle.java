@@ -11,13 +11,13 @@ import com.projecto.api.model.Pessoa;
 @RestController
 public class Controle {
     
-    // First Route
+    // First Route: Route "/"
     @GetMapping("")
     public String mensagem() {
         return "Hello World";
     }
 
-    // Second Route
+    // Second Route: Route "boasVindas"
     @GetMapping("/boasVindas/{nome}")
     public String boasVindas(@PathVariable String nome) {
         return "Seja bem vindo(a)" + nome;
