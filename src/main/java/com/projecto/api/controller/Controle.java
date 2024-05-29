@@ -15,6 +15,11 @@ public class Controle {
 
     @Autowired
     private Repositorio acao;
+
+    @PostMapping("/api") //O nome dessa rota poderia ser "/cadastrar" ja que se refere ao cadastro de utilizadores
+    public Pessoa cadastrar(@RequestBody Pessoa objPessoa) {
+        return acao.save(objPessoa);
+    }
     
     // First Route: Route "/"
     @GetMapping("")
