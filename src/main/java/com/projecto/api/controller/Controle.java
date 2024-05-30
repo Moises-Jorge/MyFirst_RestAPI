@@ -1,5 +1,7 @@
 package com.projecto.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +18,23 @@ public class Controle {
     @Autowired
     private Repositorio acao;
 
+    /**
+     * Método Responsável por cadastrar um utilizador no banco de dados
+     * @param objPessoa
+     * @return
+     */
     @PostMapping("/api") //O nome dessa rota poderia ser "/cadastrar" ja que se refere ao cadastro de utilizadores
     public Pessoa cadastrar(@RequestBody Pessoa objPessoa) {
         return acao.save(objPessoa);
+    }
+
+    /**
+     * Método responsável por listar todos os dados da tabela Pessoas
+     * @return
+     */
+    @GetMapping("/api")
+    public List<Pessoa> selecionarPessoas() {
+        return acao.findAll();
     }
     
     // First Route: Route "/"
