@@ -29,12 +29,22 @@ public class Controle {
     }
 
     /**
-     * Método responsável por listar todos os dados da tabela Pessoas
+     * Método/Rota responsável por listar todos os dados da tabela Pessoas
      * @return
      */
     @GetMapping("/api")
     public List<Pessoa> selecionarPessoas() {
         return acao.findAll();
+    }
+
+    /**
+     * Método/Rota responsável por retornar um utilizador através do código que é passado na URL
+     * @param codigo
+     * @return
+     */
+    @GetMapping("/api/{codigo}")
+    public Pessoa selecionarPeloCodigo(@PathVariable int codigo) {
+        return acao.findByCodigo(codigo);
     }
     
     // First Route: Route "/"

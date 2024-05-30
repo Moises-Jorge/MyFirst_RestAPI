@@ -11,4 +11,11 @@ import com.projecto.api.model.Pessoa;
 public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     
     List<Pessoa> findAll();
+
+    /**
+     * Subscrição do método "findBy()" para retornar os dados de uma pessoa através do atributo "codigo"
+     * @param codigo
+     * @return
+     */
+    Pessoa findByCodigo(int codigo);
 }
