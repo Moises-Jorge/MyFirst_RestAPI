@@ -87,6 +87,15 @@ public class Controle {
     public List<Pessoa> ordenarNomes() {
         return acao.findByOrderByNome();
     }
+
+    /**
+     * Método/Rota alternativa para ORDENAR com filtros de nomes iguais
+     * @return
+     */
+    @GetMapping("/api/ordenarNomes2")
+    public List<Pessoa> ordenar2() {
+        return acao.findByNomeOrderByIdadeDesc("Ana");
+    }
     
     // First Route: Route "/"
     @GetMapping("")
