@@ -78,6 +78,15 @@ public class Controle {
     public long contadorPessoas() {
         return acao.count();
     }
+
+    /**
+     * Método/Rota resposável por ORDENAR a tabela de "pessoas" pelo "nome"
+     * @return
+     */
+    @GetMapping("/api/ordenarNomes")
+    public List<Pessoa> ordenarNomes() {
+        return acao.findByOrderByNome();
+    }
     
     // First Route: Route "/"
     @GetMapping("")

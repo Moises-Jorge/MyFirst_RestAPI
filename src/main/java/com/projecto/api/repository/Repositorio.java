@@ -18,4 +18,10 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
      * @return
      */
     Pessoa findByCodigo(int codigo);
+
+    /**
+     * Assinatura do método (subscrição) para ordenar a tabela "pessoas" através do nome
+     * @return
+     */
+    List<Pessoa> findByOrderByNome();
 }
