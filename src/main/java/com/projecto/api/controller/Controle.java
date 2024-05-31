@@ -3,6 +3,7 @@ package com.projecto.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public class Controle {
     private Repositorio acao;
 
     /**
-     * Método Responsável por cadastrar um utilizador no banco de dados
+     * Método Responsável por CADASTRAR um utilizador no banco de dados
      * @param objPessoa
      * @return
      */
@@ -30,7 +31,7 @@ public class Controle {
     }
 
     /**
-     * Método/Rota responsável por listar todos os dados da tabela Pessoas
+     * Método/Rota responsável por LISTAR todos os dados da tabela Pessoas
      * @return
      */
     @GetMapping("/api")
@@ -39,7 +40,7 @@ public class Controle {
     }
 
     /**
-     * Método/Rota responsável por retornar um utilizador através do código que é passado na URL
+     * Método/Rota responsável por RETORNAR UM UTILIZADOR através do código que é passado na URL
      * @param codigo
      * @return
      */
@@ -49,13 +50,24 @@ public class Controle {
     }
 
     /**
-     * Método/Rota respondável por actualizar os dados de um utilizador
+     * Método/Rota respondável por ACTUALIZAR os dados de um utilizador
      * @param objPessoa
      * @return
      */
     @PutMapping("/api")
     public Pessoa editarPessoa(@RequestBody Pessoa objPessoa) {
         return acao.save(objPessoa);
+    }
+
+    /**
+     * Método/Rota responsável por APAGAR um registro da tabela "pessoas"
+     * @param codigo
+     */
+    @DeleteMapping("/api/{codigo}")
+    public void removerPessoa(@PathVariable int codigo) {
+        Pessoa objPessoa = selecionarPeloCodigo(codigo);
+
+        acao.delete(objPessoa);
     }
     
     // First Route: Route "/"
