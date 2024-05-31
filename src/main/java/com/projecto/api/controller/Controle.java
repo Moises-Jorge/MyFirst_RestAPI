@@ -69,6 +69,15 @@ public class Controle {
 
         acao.delete(objPessoa);
     }
+
+    /**
+     * Método/Rota responsável por apresentar a QUANTIDADE de registros existentes na tabela "pessoas"
+     * @return
+     */
+    @GetMapping("/api/contador")
+    public long contadorPessoas() {
+        return acao.count();
+    }
     
     // First Route: Route "/"
     @GetMapping("")
