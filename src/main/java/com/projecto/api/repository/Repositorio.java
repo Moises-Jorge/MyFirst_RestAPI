@@ -20,22 +20,36 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     Pessoa findByCodigo(int codigo);
 
     /**
-     * Assinatura do método (subscrição) para ordenar a tabela "pessoas" através do nome
+     * Assinatura do método (subscrição) para ORDENAR a tabela "pessoas" através do nome
      * @return
      */
     List<Pessoa> findByOrderByNome();
 
     /**
-     * Pesquisa pelo nome e ordena-os atraves da idade
+     * Pesquisa pelo NOME e ORDENA-os atraves da IDADE
      * @param nome
      * @return
      */
     List<Pessoa> findByNomeOrderByIdadeDesc(String nome);
 
     /**
-     * Verifica se num determinado nome contem o termo/caracter especificado
+     * Verifica se num determinado nome CONTEM o termo/caracter especificado
      * @param termo
      * @return
      */
     List<Pessoa> findByNomeContaining(String termo);
+
+    /**
+     * Filtra nomes que COMECAM com o termo especificado
+     * @param termo
+     * @return
+     */
+    List<Pessoa> findByNomeStartsWith(String termo);
+    
+    /**
+     * Filtra nomes que TERMINAM com o termo especificado
+     * @param termo
+     * @return
+     */
+    List<Pessoa> findByNomeEndsWith(String termo);
 }

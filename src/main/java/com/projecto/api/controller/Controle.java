@@ -97,10 +97,31 @@ public class Controle {
         return acao.findByNomeOrderByIdadeDesc("Ana");
     }
 
-    
+    /**
+     * Verifica se num determinado nome contem o termo/caracter especificado
+     * @return
+     */
     @GetMapping("/api/nomeContem")
     public List<Pessoa> nomeContem() {
         return acao.findByNomeContaining("a");
+    }
+
+    /**
+     * Filtra nomes que COMECAM com o termo especificado
+     * @return
+     */
+    @GetMapping("/api/iniciaCom")
+    public List<Pessoa> iniciaCom() {
+        return acao.findByNomeStartsWith("m");
+    }
+
+    /**
+     * Filtra nomes que TERMINAM com o termo especificado
+     * @return
+     */
+    @GetMapping("/api/terminaCom")
+    public List<Pessoa> terminaCom() {
+        return acao.findByNomeEndsWith("a");
     }
     
     // First Route: Route "/"
