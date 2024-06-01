@@ -2,6 +2,7 @@ package com.projecto.api.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -52,4 +53,12 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
      * @return
      */
     List<Pessoa> findByNomeEndsWith(String termo);
+
+    /**
+     * Como o JPA não desponibiliza todas as funções SQL que existem, nós podemos criar as nossas. Isso é exatamente o que estamos fazendo aqui.
+     * Criamos um select que soma todads as idades da tabela "pessoas" e atribuímos esse select à um método.
+     * @return
+     */
+    @Query(value = "SELECT SUM(idade) FROM pessoas", nativeQuery = true)
+    int somaIdades();
 }

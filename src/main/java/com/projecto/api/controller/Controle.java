@@ -123,6 +123,15 @@ public class Controle {
     public List<Pessoa> terminaCom() {
         return acao.findByNomeEndsWith("a");
     }
+
+    /**
+     * Metodo/Rota que apresenta a soma de todas as idades da tabela "pessoas"
+     * @return
+     */
+    @GetMapping("/api/somaIdades")
+    public int somaIdades() {
+        return acao.somaIdades();
+    }
     
     // First Route: Route "/"
     @GetMapping("")
