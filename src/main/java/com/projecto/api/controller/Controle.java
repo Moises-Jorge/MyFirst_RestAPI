@@ -89,12 +89,18 @@ public class Controle {
     }
 
     /**
-     * Método/Rota alternativa para ORDENAR com filtros de nomes iguais
+     * Método/Rota alternativa para ORDENAR atraves da idade nomes iguais
      * @return
      */
     @GetMapping("/api/ordenarNomes2")
     public List<Pessoa> ordenar2() {
         return acao.findByNomeOrderByIdadeDesc("Ana");
+    }
+
+    
+    @GetMapping("/api/nomeContem")
+    public List<Pessoa> nomeContem() {
+        return acao.findByNomeContaining("a");
     }
     
     // First Route: Route "/"
